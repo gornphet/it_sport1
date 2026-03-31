@@ -54,6 +54,7 @@
                 else if (name === 'XCircle') iconName = 'CircleX';
                 else if (name === 'MinusCircle') iconName = 'CircleMinus';
                 else if (name === 'ImageIcon') iconName = 'Image';
+                else if (name === 'HelpCircle') iconName = 'CircleHelp';
             }
 
             const iconNode = icons[iconName];
@@ -96,10 +97,14 @@
         const LayoutList = (p) => <Icon name="LayoutList" {...p} />;
         const ArrowLeft = (p) => <Icon name="ArrowLeft" {...p} />;
         const ImageIcon = (p) => <Icon name="ImageIcon" {...p} />;
-        const Table = (p) => <Icon name="Table" {...p} />;
+        const TableIcon = (p) => <Icon name="Table" {...p} />;
         const Camera = (p) => <Icon name="Camera" {...p} />;
         const ExternalLink = (p) => <Icon name="ExternalLink" {...p} />;
-
+        const TrendingUp = (p) => <Icon name="TrendingUp" {...p} />;
+        const ArrowUpRight = (p) => <Icon name="ArrowUpRight" {...p} />;
+        const ArrowDownRight = (p) => <Icon name="ArrowDownRight" {...p} />;
+        const Minus = (p) => <Icon name="Minus" {...p} />;
+        const HelpCircle = (p) => <Icon name="HelpCircle" {...p} />;
 
         // --- Data Setup ---
         const teamColors = [
@@ -125,6 +130,7 @@
         const internationalSports = [
             {
                 name: 'ฟุตบอลประชาชน อายุไม่เกิน 39 ปี',
+                image: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=500',
                 group: 'สาย B',
                 groupTeams: ['อบต.ฝายหลวง', 'ทต.หัวดง', 'ทต.พระเสด็จ'],
                 result: 'รองชนะเลิศอันดับ 2',
@@ -153,6 +159,7 @@
             },
             {
                 name: 'ฟุตบอลอาวุโส อายุ 40 ปี ขึ้นไป',
+                image: 'https://images.unsplash.com/photo-1518605368461-1ee7c514742e?auto=format&fit=crop&q=80&w=500',
                 group: 'สาย A',
                 groupTeams: ['อบต.ชัยจุมพล', 'ทต.ทุ่งยั้ง', 'อบต.ด่านแม่คำมัน', 'ทต.หัวดง'],
                 result: 'ตกรอบแรก',
@@ -183,6 +190,7 @@
             },
             {
                 name: 'ฟุตซอลประชาชน อายุ 39 ปี',
+                image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=500',
                 group: 'สาย A',
                 groupTeams: ['อบต.ฝายหลวง', 'ทต.ศรีพนมมาศ', 'อบต.ชัยจุมพล', 'ทต.หัวดง'],
                 result: 'ตกรอบแรก',
@@ -213,6 +221,7 @@
             },
             {
                 name: 'วอลเลย์บอลประชาชนทั่วไป ชาย',
+                image: 'https://images.unsplash.com/photo-1593789066617-76b6a078d4db?auto=format&fit=crop&q=80&w=500',
                 group: 'สาย B',
                 groupTeams: ['ทต.หัวดง', 'อบต.ฝายหลวง', 'อบต.นานกกก'],
                 result: 'ชนะเลิศ',
@@ -238,6 +247,7 @@
             },
             {
                 name: 'วอลเลย์บอลแม่บ้าน อายุ 30 ปี ขึ้นไป',
+                image: 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&q=80&w=500',
                 group: 'สาย A',
                 groupTeams: ['ทต.ศรีพนมมาศ', 'ทต.หัวดง', 'อบต.แม่พูล', 'อบต.นานกกก'],
                 result: 'รองชนะเลิศอันดับ 1',
@@ -267,6 +277,7 @@
             },
             {
                 name: 'เปตองเยาวชน ชาย อายุไม่เกิน 25 ปี',
+                image: 'https://images.unsplash.com/photo-1582655299066-512bc9f72b7a?auto=format&fit=crop&q=80&w=500',
                 group: 'สาย B',
                 groupTeams: ['อบต.ไผ่ล้อม', 'ทต.หัวดง', 'อบต.ฝายหลวง', 'อบต.ชัยจุมพล'],
                 result: 'ตกรอบแรก',
@@ -296,6 +307,7 @@
             },
             {
                 name: 'เปตองเยาวชน หญิง อายุไม่เกิน 25 ปี',
+                image: 'https://images.unsplash.com/photo-1629007693991-38cb4db9c522?auto=format&fit=crop&q=80&w=500',
                 group: 'สาย A',
                 groupTeams: ['ทต.ทุ่งยั้ง', 'ทต.หัวดง', 'อบต.ชัยจุมพล', 'อบต.นานกกก'],
                 result: 'ชนะเลิศ',
@@ -323,6 +335,7 @@
             },
             {
                 name: 'เปตองประชาชน ชาย อายุ 26 ปีขึ้นไป',
+                image: 'https://images.unsplash.com/photo-1554332304-f58ef54fbf8a?auto=format&fit=crop&q=80&w=500',
                 group: 'สาย A',
                 groupTeams: ['ทต.หัวดง', 'อบต.แม่พูล', 'อบต.ชัยจุมพล', 'อบต.ด่านแม่คำมัน', 'อบต.ไผ่ล้อม'],
                 result: 'ตกรอบแรก',
@@ -360,6 +373,7 @@
             },
             {
                 name: 'เปตองประชาชน หญิง อายุ 26 ปีขึ้นไป',
+                image: 'https://images.unsplash.com/photo-1582655299066-512bc9f72b7a?auto=format&fit=crop&q=80&w=500',
                 group: 'สาย A',
                 groupTeams: ['อบต.ด่านแม่คำมัน', 'อบต.แม่พูล', 'ทต.ศรีพนมมาศ', 'ทต.หัวดง', 'ทต.พระเสด็จ'],
                 result: 'ตกรอบแรก',
@@ -397,6 +411,7 @@
             },
             {
                 name: 'เปตองพนักงาน ชาย',
+                image: 'https://images.unsplash.com/photo-1629007693991-38cb4db9c522?auto=format&fit=crop&q=80&w=500',
                 group: 'สาย A',
                 groupTeams: ['ทต.ทุ่งยั้ง', 'ทต.หัวดง', 'ทต.ศรีพนมมาศ', 'อบต.ชัยจุมพล', 'อบต.แม่พูล'],
                 result: 'ตกรอบแรก',
@@ -433,6 +448,7 @@
             },
             {
                 name: 'เปตองพนักงาน หญิง',
+                image: 'https://images.unsplash.com/photo-1554332304-f58ef54fbf8a?auto=format&fit=crop&q=80&w=500',
                 group: 'สาย B',
                 groupTeams: ['อบต.นานกกก', 'อบต.ชัยจุมพล', 'อบต.ด่านแม่คำมัน', 'ทต.พระเสด็จ', 'ทต.หัวดง'],
                 result: 'ตกรอบแรก',
@@ -470,6 +486,7 @@
             },
             {
                 name: 'เปตองผู้สูงอายุ ชาย อายุ 60 ปีขึ้นไป',
+                image: 'https://images.unsplash.com/photo-1582655299066-512bc9f72b7a?auto=format&fit=crop&q=80&w=500',
                 group: 'สาย A',
                 groupTeams: ['ทต.ทุ่งยั้ง', 'ทต.หัวดง', 'ทต.ศรีพนมมาศ', 'อบต.ด่านแม่คำมัน', 'อบต.ฝายหลวง'],
                 result: 'ตกรอบแรก',
@@ -503,6 +520,7 @@
             },
             {
                 name: 'เปตองผู้สูงอายุ หญิง อายุ 60 ปีขึ้นไป',
+                image: 'https://images.unsplash.com/photo-1629007693991-38cb4db9c522?auto=format&fit=crop&q=80&w=500',
                 group: 'สาย A',
                 groupTeams: ['ทต.ศรีพนมมาศ', 'อบต.ชัยจุมพล', 'ทต.หัวดง', 'อบต.แม่พูล'],
                 result: 'ตกรอบแรก',
@@ -541,6 +559,23 @@
             'ปั่นจักรยานช้า หญิง 1 คน'
         ];
 
+        const comparisonStats = [
+            { sport: 'ฟุตบอลประชาชน อายุไม่เกิน 39 ปี', y68: 'ชนะเลิศ (ทอง)', y69: 'รองชนะเลิศอันดับ 2 (ทองแดง)', trend: 'down' },
+            { sport: 'ฟุตบอลอาวุโส อายุ 40 ปี ขึ้นไป', y68: 'ตกรอบแรก', y69: 'ตกรอบแรก', trend: 'same' },
+            { sport: 'ฟุตซอลยุวชน อายุไม่เกิน 13 ปี', y68: 'ตกรอบแรก', y69: 'ไม่ได้ส่งเข้าร่วม', trend: 'down' },
+            { sport: 'ฟุตซอลประชาชน อายุ 39 ปี', y68: 'ตกรอบแรก', y69: 'ตกรอบแรก', trend: 'same' },
+            { sport: 'วอลเลย์บอลประชาชนทั่วไป ชาย', y68: 'ไม่ได้ส่งเข้าร่วม', y69: 'ชนะเลิศ (ทอง)', trend: 'up' },
+            { sport: 'วอลเลย์บอลแม่บ้าน อายุ 30 ปี ขึ้นไป', y68: 'ตกรอบแรก', y69: 'รองชนะเลิศอันดับ 1 (เงิน)', trend: 'up' },
+            { sport: 'เปตองเยาวชน ชาย อายุไม่เกิน 25 ปี', y68: 'รองชนะเลิศอันดับ 1 (เงิน)', y69: 'ตกรอบแรก', trend: 'down' },
+            { sport: 'เปตองเยาวชน หญิง อายุไม่เกิน 25 ปี', y68: 'รองชนะเลิศอันดับ 1 (เงิน)', y69: 'ชนะเลิศ (ทอง)', trend: 'up' },
+            { sport: 'เปตองประชาชน ชาย อายุ 26 ปีขึ้นไป', y68: 'ตกรอบแรก', y69: 'ตกรอบแรก', trend: 'same' },
+            { sport: 'เปตองประชาชน หญิง อายุ 26 ปีขึ้นไป', y68: 'ตกรอบแรก', y69: 'ตกรอบแรก', trend: 'same' },
+            { sport: 'เปตองพนักงาน ชาย', y68: 'ชนะเลิศ (ทอง)', y69: 'ตกรอบแรก', trend: 'down' },
+            { sport: 'เปตองพนักงาน หญิง', y68: 'ตกรอบแรก', y69: 'ตกรอบแรก', trend: 'same' },
+            { sport: 'เปตองผู้สูงอายุ ชาย อายุ 60 ปีขึ้นไป', y68: 'รอข้อมูล', y69: 'ตกรอบแรก', trend: 'wait' },
+            { sport: 'เปตองผู้สูงอายุ หญิง อายุ 60 ปีขึ้นไป', y68: 'รอข้อมูล', y69: 'ตกรอบแรก', trend: 'wait' },
+        ];
+
         // --- Sub Components ---
         const StatusIcon = ({ status }) => {
             if (status === 'win') return <CheckCircle2 className="text-green-500 w-5 h-5" />;
@@ -577,88 +612,76 @@
             }, {});
 
             return (
-                <div className="space-y-8 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] bg-white p-4 md:p-6 rounded-2xl border border-slate-200 shadow-inner">
+                <div className="space-y-6">
                 {Object.entries(grouped).map(([roundName, matches], idx) => (
                     <div key={idx} className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{animationDelay: `${idx * 150}ms`}}>
-                    <div className="flex items-center gap-3 mb-5">
-                        <div className="h-8 w-1.5 bg-blue-600 rounded-full"></div>
-                        <h4 className="text-xl font-black text-blue-900 uppercase tracking-wide">{roundName}</h4>
-                        <div className="flex-1 h-px bg-gradient-to-r from-blue-200 to-transparent"></div>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5">
-                        {matches.map((match, mIdx) => {
-                        const t1Color = getTeamStyle(match.t1);
-                        const t2Color = getTeamStyle(match.t2);
-                        const isHuaDong = match.t1.includes('หัวดง') || match.t2.includes('หัวดง');
+                        <div className="flex items-center gap-3 mb-4">
+                            <div className="h-6 w-1.5 bg-blue-600 rounded-full"></div>
+                            <h4 className="text-lg font-bold text-slate-800">{roundName}</h4>
+                        </div>
                         
-                        const opponentStr = isHuaDong ? (match.t1.includes('หัวดง') ? match.t2 : match.t1) : '';
-                        const resultMatch = isHuaDong && huaDongMatches ? huaDongMatches.find(m => {
-                            const cleanOpponent = opponentStr.replace(/อบต\.|ทต\.| |\/|\n/g, '');
-                            const cleanMOpponent = m.opponent.replace(/อบต\.|ทต\.| |\/|\n/g, '');
-                            return cleanMOpponent.includes(cleanOpponent) || cleanOpponent.includes(cleanMOpponent);
-                        }) : null;
-
-                        return (
-                            <div key={mIdx} className={`relative bg-slate-50 rounded-2xl p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between ${isHuaDong ? 'border-2 border-red-400 ring-4 ring-red-50' : 'border border-slate-200'}`}>
-                            {isHuaDong && (
-                                <div className="absolute top-0 right-0 bg-gradient-to-r from-red-600 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl shadow-sm z-10 flex items-center gap-1">
-                                <Flag size={14}/> แมตช์หัวดง
-                                </div>
-                            )}
-                            
-                            <div className="flex justify-center mb-4 mt-2">
-                                <div className="inline-flex items-center gap-1.5 text-xs md:text-sm font-semibold text-slate-600 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
-                                <Clock size={14} className="text-blue-500"/> {match.date} <span className="text-slate-400 mx-0.5">|</span> {match.time}
-                                </div>
-                            </div>
-
-                            <div className="flex items-center justify-between gap-1 mt-auto">
-                                <div className="flex-1 flex flex-col items-center text-center">
-                                <div className={`w-12 h-12 md:w-16 md:h-16 rounded-full ${t1Color} mb-2 border-2 border-white ring-2 ring-slate-100 flex items-center justify-center`}>
-                                    {match.t1.includes('ที่') && <span className="text-slate-500 text-sm font-bold">?</span>}
-                                </div>
-                                <span className={`text-xs md:text-sm font-bold leading-tight ${match.t1.includes('หัวดง') ? 'text-red-700' : 'text-slate-700'}`}>{match.t1}</span>
-                                </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                            {matches.map((match, mIdx) => {
+                                const t1Color = getTeamStyle(match.t1);
+                                const t2Color = getTeamStyle(match.t2);
+                                const isHuaDong = match.t1.includes('หัวดง') || match.t2.includes('หัวดง');
                                 
-                                <div className="shrink-0 flex flex-col items-center justify-center px-1 w-24">
-                                {resultMatch ? (
-                                    <div className={`flex flex-col items-center gap-1.5`}>
-                                    <div className={`text-sm md:text-base font-black px-2 py-1.5 rounded shadow-sm text-center w-full leading-none ${
-                                        resultMatch.status === 'win' ? 'bg-green-100 text-green-700 border border-green-200' : 
-                                        resultMatch.status === 'lose' ? 'bg-red-100 text-red-700 border border-red-200' : 
-                                        'bg-slate-100 text-slate-700 border border-slate-200'
-                                    }`}>
-                                        {resultMatch.score}
+                                const opponentStr = isHuaDong ? (match.t1.includes('หัวดง') ? match.t2 : match.t1) : '';
+                                const resultMatch = isHuaDong && huaDongMatches ? huaDongMatches.find(m => {
+                                    const cleanOpponent = opponentStr.replace(/อบต\.|ทต\.| |\/|\n/g, '');
+                                    const cleanMOpponent = m.opponent.replace(/อบต\.|ทต\.| |\/|\n/g, '');
+                                    return cleanMOpponent.includes(cleanOpponent) || cleanOpponent.includes(cleanMOpponent);
+                                }) : null;
+
+                                return (
+                                    <div key={mIdx} className={`bg-white rounded-xl border ${isHuaDong ? 'border-red-200 shadow-md' : 'border-slate-200 shadow-sm'} p-4 flex flex-col hover:shadow-lg transition-shadow relative overflow-hidden`}>
+                                        {isHuaDong && <div className="absolute top-0 left-0 w-1.5 h-full bg-red-500"></div>}
+                                        
+                                        <div className="flex justify-between items-start mb-4 border-b border-slate-100 pb-3">
+                                            <span className="text-[11px] font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded">{match.round}</span>
+                                            <div className="text-right">
+                                                <div className="text-xs font-bold text-slate-700 flex items-center gap-1.5 justify-end">
+                                                    <Calendar size={12} className="text-blue-500"/> {match.date}
+                                                </div>
+                                                <div className="text-[11px] text-slate-500 flex items-center gap-1.5 justify-end mt-1">
+                                                    <Clock size={12} className="text-blue-500"/> {match.time}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex flex-col gap-3 flex-1 justify-center pl-1">
+                                            <div className="flex items-center gap-3">
+                                                <div className={`w-3.5 h-3.5 rounded-full ${t1Color.split(' ')[0]} shrink-0 shadow-sm`}></div>
+                                                <span className={`text-sm font-bold ${match.t1.includes('หัวดง') ? 'text-red-700' : 'text-slate-700'} line-clamp-1`}>{match.t1}</span>
+                                            </div>
+                                            <div className="flex items-center gap-3">
+                                                <div className={`w-3.5 h-3.5 rounded-full ${t2Color.split(' ')[0]} shrink-0 shadow-sm`}></div>
+                                                <span className={`text-sm font-bold ${match.t2.includes('หัวดง') ? 'text-red-700' : 'text-slate-700'} line-clamp-1`}>{match.t2}</span>
+                                            </div>
+                                        </div>
+
+                                        {resultMatch ? (
+                                            <div className={`mt-4 pt-3 border-t ${isHuaDong ? 'border-red-100' : 'border-slate-100'} flex items-center justify-between bg-slate-50 -mx-4 -mb-4 px-4 py-3`}>
+                                                <span className="text-xs font-semibold text-slate-500">ผลการแข่งขัน</span>
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-sm font-black text-slate-800 bg-white border border-slate-200 px-2.5 py-0.5 rounded shadow-sm">{resultMatch.score}</span>
+                                                    {resultMatch.status === 'win' && <span className="text-xs font-bold text-green-700 flex items-center gap-1 bg-green-100 px-2 py-1 rounded shadow-sm"><CheckCircle2 size={14}/> ชนะ</span>}
+                                                    {resultMatch.status === 'lose' && <span className="text-xs font-bold text-red-700 flex items-center gap-1 bg-red-100 px-2 py-1 rounded shadow-sm"><XCircle size={14}/> แพ้</span>}
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <div className="mt-4 pt-3 border-t border-slate-100 text-center bg-slate-50 -mx-4 -mb-4 px-4 py-3">
+                                                <span className="text-[11px] font-medium text-slate-400">ยังไม่ทราบผล / รอการแข่งขัน</span>
+                                            </div>
+                                        )}
                                     </div>
-                                    <div className="flex items-center justify-center gap-1 text-xs font-bold text-slate-600 bg-white rounded-full px-2 py-0.5 shadow-sm border border-slate-100 w-full whitespace-nowrap">
-                                        {resultMatch.status === 'win' && <><CheckCircle2 size={12} className="text-green-500"/> <span className="text-green-600">ชนะ</span></>}
-                                        {resultMatch.status === 'lose' && <><XCircle size={12} className="text-red-500"/> <span className="text-red-600">แพ้</span></>}
-                                        {resultMatch.status !== 'win' && resultMatch.status !== 'lose' && <span>{resultMatch.status}</span>}
-                                    </div>
-                                    </div>
-                                ) : (
-                                    <div className="bg-gradient-to-br from-slate-700 to-slate-800 text-white text-xs md:text-sm font-black italic px-4 py-2 rounded-lg shadow-md transform -skew-x-12">
-                                    VS
-                                    </div>
-                                )}
-                                </div>
-                                
-                                <div className="flex-1 flex flex-col items-center text-center">
-                                <div className={`w-12 h-12 md:w-16 md:h-16 rounded-full ${t2Color} mb-2 border-2 border-white ring-2 ring-slate-100 flex items-center justify-center`}>
-                                    {match.t2.includes('ที่') && <span className="text-slate-500 text-sm font-bold">?</span>}
-                                </div>
-                                <span className={`text-xs md:text-sm font-bold leading-tight ${match.t2.includes('หัวดง') ? 'text-red-700' : 'text-slate-700'}`}>{match.t2}</span>
-                                </div>
-                            </div>
-                            </div>
-                        )
-                        })}
-                    </div>
+                                )
+                            })}
+                        </div>
                     </div>
                 ))}
                 </div>
-            );
+            )
         };
 
         const ScheduleTable = ({ scheduleStrArray }) => {
@@ -796,6 +819,12 @@
                         className={`flex items-center gap-2 px-6 py-3 rounded-full text-base font-semibold transition-all whitespace-nowrap ${activeTab === 'traditional' ? 'bg-blue-700 text-white shadow-md' : 'text-slate-600 hover:bg-slate-100'}`}
                         >
                         <Activity size={20}/> กีฬาพื้นบ้าน
+                        </button>
+                        <button 
+                        onClick={() => handleTabChange('compare')}
+                        className={`flex items-center gap-2 px-6 py-3 rounded-full text-base font-semibold transition-all whitespace-nowrap ${activeTab === 'compare' ? 'bg-blue-700 text-white shadow-md' : 'text-slate-600 hover:bg-slate-100'}`}
+                        >
+                        <TrendingUp size={20}/> เปรียบเทียบ 68-69
                         </button>
                     </div>
                     </div>
@@ -961,17 +990,19 @@
                                 <button 
                                     key={idx} 
                                     onClick={() => setSelectedSportIndex(idx)}
-                                    className="flex flex-col text-left p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-lg hover:border-blue-400 transition-all duration-300 group relative overflow-hidden"
+                                    className="flex flex-col text-left rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-lg hover:border-blue-400 transition-all duration-300 group relative overflow-hidden"
                                 >
                                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-transparent rounded-bl-full -z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                    <div className="flex items-start gap-4 mb-5 z-10">
-                                    <div className="p-3.5 bg-slate-50 rounded-xl group-hover:bg-blue-50 text-slate-400 group-hover:text-blue-600 transition-colors border border-slate-100">
-                                        <Activity size={28}/>
+                                    <div className="flex items-start gap-4 mb-5 z-10 p-5 pb-0">
+                                        <div className="p-3.5 bg-slate-50 rounded-xl group-hover:bg-blue-50 text-slate-400 group-hover:text-blue-600 transition-colors border border-slate-100">
+                                            <Activity size={28}/>
+                                        </div>
+                                        <h4 className="font-bold text-slate-800 text-lg md:text-xl group-hover:text-blue-800 transition-colors leading-tight pt-1.5">{sport.name}</h4>
                                     </div>
-                                    <h4 className="font-bold text-slate-800 text-lg md:text-xl group-hover:text-blue-800 transition-colors leading-tight pt-1.5">{sport.name}</h4>
-                                    </div>
-                                    <div className={`mt-auto inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border ${sport.color} shadow-sm z-10 w-fit`}>
-                                    ผลลัพธ์ ทต.หัวดง: {sport.result}
+                                    <div className="p-5 pt-3 mt-auto">
+                                        <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border ${sport.color} shadow-sm w-fit`}>
+                                            ผลลัพธ์ ทต.หัวดง: {sport.result}
+                                        </div>
                                     </div>
                                 </button>
                                 ))}
@@ -981,123 +1012,114 @@
                             <div className="animate-in slide-in-from-right-4 duration-300">
                             <button 
                                 onClick={() => setSelectedSportIndex(null)}
-                                className="flex items-center gap-2 text-blue-700 font-semibold mb-6 hover:bg-blue-50 px-6 py-3 rounded-full transition-colors border border-transparent hover:border-blue-100 text-base"
+                                className="flex items-center gap-2 text-slate-500 hover:text-blue-700 font-semibold mb-6 hover:bg-slate-100 px-6 py-3 rounded-full transition-colors border border-transparent text-sm md:text-base w-fit"
                             >
-                                <ArrowLeft size={20} /> กลับไปหน้าเลือกประเภทกีฬา
+                                <ArrowLeft size={20} /> ย้อนกลับไปหน้าเลือกประเภทกีฬา
                             </button>
                             
                             {(() => {
                                 const sport = internationalSports[selectedSportIndex];
                                 return (
-                                <div className="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-100">
-                                    <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8 pb-6 border-b border-slate-100">
-                                    <div className="flex items-start gap-5">
-                                        <div className="p-4 md:p-5 bg-blue-100 text-blue-700 rounded-2xl shadow-sm shrink-0"><Activity size={36}/></div>
-                                        <div className="mt-1">
-                                        <h2 className="text-2xl md:text-4xl font-bold text-slate-800 leading-tight">{sport.name}</h2>
-                                        <p className="text-slate-500 mt-2 text-lg">ตารางการแข่งขัน และ สรุปผลงาน</p>
+                                <div className="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-slate-100">
+                                    
+                                    {/* --- ส่วนหัว (Minimal) --- */}
+                                    <div className="mb-10 pb-8 border-b border-slate-100">
+                                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                                            <div className="flex items-center gap-5">
+                                                <div className="p-4 bg-blue-50 text-blue-600 rounded-2xl shadow-sm shrink-0 border border-blue-100">
+                                                    <Activity size={36}/>
+                                                </div>
+                                                <div>
+                                                    <h2 className="text-2xl md:text-3xl font-black text-slate-800 leading-tight mb-2">{sport.name}</h2>
+                                                    <div className="flex flex-wrap items-center gap-3 text-sm md:text-base">
+                                                        {sport.group && <span className="font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-lg">สาย: {sport.group}</span>}
+                                                        <span className={`font-bold px-3 py-1 rounded-lg border bg-white shadow-sm ${sport.color.split(' ')[1]}`}>ผลงานหัวดง: {sport.result}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className={`shrink-0 px-6 py-4 rounded-2xl text-base md:text-lg font-bold border shadow-sm flex flex-col justify-center items-center ${sport.color}`}>
-                                        <span className="text-sm font-semibold opacity-80 mb-1">ผลสรุป (ทต.หัวดง)</span>
-                                        <span>{sport.result}</span>
-                                    </div>
+                                        
+                                        {/* ข้อมูลเพื่อนร่วมสาย แบบเรียบง่าย */}
+                                        {sport.group && (
+                                            <div className="mt-6 flex flex-wrap items-center gap-2 text-sm text-slate-600 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                                                <Users size={18} className="text-slate-400" />
+                                                <span className="font-bold">เพื่อนร่วมสาย:</span>
+                                                {sport.groupTeams.filter(t => t !== 'ทต.หัวดง').map((t, idx) => (
+                                                    <span key={idx} className="bg-white border border-slate-200 px-2.5 py-1 rounded-md font-medium shadow-sm">{t}</span>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
 
-                                    {sport.group && (
-                                    <div className="mb-8 bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-5">
-                                        <div className="bg-white p-3 rounded-xl text-blue-600 shrink-0 shadow-sm border border-slate-100">
-                                        <Users size={28} />
-                                        </div>
-                                        <div>
-                                        <p className="font-bold text-slate-800 text-lg md:text-xl mb-2">การแบ่งสาย: {sport.group}</p>
-                                        <p className="text-base text-slate-600 flex flex-wrap items-center gap-2">
-                                            ร่วมสายกับ: {sport.groupTeams.filter(t => t !== 'ทต.หัวดง').map(t => <span key={t} className="inline-block bg-white px-3 py-1 rounded-md text-slate-700 border border-slate-200 font-medium shadow-sm text-sm md:text-base">{t}</span>)}
-                                        </p>
-                                        </div>
-                                    </div>
-                                    )}
-
-                                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-6">
-                                    <div className="lg:col-span-4 xl:col-span-3 bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-100">
-                                        <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-8 flex items-center gap-3 border-b border-slate-200 pb-5">
-                                        <Flag className="text-red-600"/> ผลงาน ทต.หัวดง
+                                    {/* --- ส่วนผลงาน ทต.หัวดง (แนวนอน Minimal) --- */}
+                                    <div className="mb-12">
+                                        <h3 className="text-xl font-bold text-slate-800 mb-5 flex items-center gap-2">
+                                            <Flag className="text-red-500" size={24}/> แมตช์การแข่งขันของ ทต.หัวดง
                                         </h3>
                                         
-                                        <div className="relative pl-8 md:pl-10 border-l-2 border-slate-300 ml-2 space-y-8">
-                                        {sport.matches.map((match, mIdx) => (
-                                            <div key={mIdx} className="relative">
-                                            <div className="absolute -left-[39px] md:-left-[47px] top-1">
-                                                <div className={`w-5 h-5 rounded-full border-4 border-white shadow-sm ${
-                                                match.status === 'win' ? 'bg-green-500' : 
-                                                match.status === 'lose' ? 'bg-red-500' : 'bg-slate-400'
-                                                }`}></div>
-                                            </div>
-                                            
-                                            <div className="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
-                                                <div className="flex flex-col gap-3 mb-4 border-b border-slate-100 pb-4">
-                                                <div className="flex items-center gap-2 text-sm md:text-base font-bold text-slate-700 bg-slate-100 px-3 py-1.5 rounded-lg w-fit">
-                                                    <Clock size={16} className="text-blue-500"/> {match.date}
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+                                            {sport.matches.map((match, mIdx) => (
+                                                <div key={mIdx} className="bg-slate-50 rounded-2xl p-5 border border-slate-100 relative overflow-hidden flex flex-col h-full hover:shadow-md hover:border-slate-200 transition-all">
+                                                    <div className={`absolute top-0 left-0 right-0 h-1.5 ${
+                                                        match.status === 'win' ? 'bg-green-500' : 
+                                                        match.status === 'lose' ? 'bg-red-500' : 'bg-slate-300'
+                                                    }`}></div>
+                                                    
+                                                    <div className="flex justify-between items-start mb-3 pt-1">
+                                                        <span className="text-xs font-bold text-slate-500 bg-white border border-slate-200 px-2.5 py-1 rounded-md shadow-sm">{match.round}</span>
+                                                        <span className="text-xs font-semibold text-slate-500 flex items-center gap-1"><Clock size={12}/>{match.date}</span>
+                                                    </div>
+                                                    
+                                                    <div className="flex-1 py-3">
+                                                        <p className="text-xs text-slate-400 font-medium mb-1">พบกับ</p>
+                                                        <p className="font-bold text-slate-800 text-base md:text-lg leading-snug">{match.opponent}</p>
+                                                    </div>
+                                                    
+                                                    <div className="mt-2 pt-3 border-t border-slate-200 flex items-center justify-between">
+                                                        <span className="text-base font-black text-slate-700">{match.score}</span>
+                                                        <StatusIcon status={match.status} />
+                                                    </div>
                                                 </div>
-                                                <span className="text-xs md:text-sm font-semibold text-slate-500 uppercase tracking-wider bg-slate-50 border border-slate-100 px-3 py-1 rounded-md w-fit">
-                                                    {match.round}
-                                                </span>
-                                                </div>
-                                                
-                                                <div className="flex flex-col gap-2 mt-2">
-                                                <div className="text-slate-400 font-medium text-xs md:text-sm">พบกับ</div>
-                                                <div className="font-bold text-slate-800 text-base md:text-lg">{match.opponent}</div>
-                                                <div className={`mt-3 flex items-center gap-2 font-bold px-4 py-2 rounded-xl text-base w-fit ${
-                                                    match.status === 'win' ? 'bg-green-50 text-green-700 border border-green-100' : 
-                                                    match.status === 'lose' ? 'bg-red-50 text-red-700 border border-red-100' : 'bg-slate-50 text-slate-700 border border-slate-200'
-                                                }`}>
-                                                    {match.score}
-                                                    <StatusIcon status={match.status} />
-                                                </div>
-                                                </div>
-                                            </div>
-                                            </div>
-                                        ))}
+                                            ))}
                                         </div>
                                     </div>
 
-                                    <div className="lg:col-span-8 xl:col-span-9">
-                                        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-5">
-                                        <div>
-                                            <h3 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-3 mb-2">
-                                            <Calendar className="text-blue-600" size={28}/> ตารางการแข่งขันทั้งหมด
-                                            </h3>
-                                            <p className="text-base text-slate-500">อ้างอิงจากโปรแกรมการแข่งขันกีฬา อปท.ลับแลสัมพันธ์ ครั้งที่ 24</p>
-                                        </div>
-                                        
-                                        <div className="flex items-center bg-slate-100 p-1.5 rounded-xl shrink-0 border border-slate-200">
-                                            <button 
-                                            onClick={() => setScheduleView('graphic')}
-                                            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-base font-semibold transition-all ${scheduleView === 'graphic' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
-                                            >
-                                            <ImageIcon size={18}/> แบบกราฟิก
-                                            </button>
-                                            <button 
-                                            onClick={() => setScheduleView('table')}
-                                            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-base font-semibold transition-all ${scheduleView === 'table' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
-                                            >
-                                            <Table size={18}/> แบบตาราง
-                                            </button>
-                                        </div>
+                                    {/* --- ส่วนตารางทั้งหมด --- */}
+                                    <div>
+                                        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4 border-t border-slate-100 pt-10">
+                                            <div>
+                                                <h3 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2 mb-1">
+                                                    <Calendar className="text-blue-600" size={24}/> ตารางการแข่งขันทั้งหมด
+                                                </h3>
+                                                <p className="text-sm md:text-base text-slate-500">อ้างอิงตามโปรแกรมกีฬา อปท.ลับแลสัมพันธ์ ครั้งที่ 24</p>
+                                            </div>
+                                            
+                                            <div className="flex items-center bg-slate-100 p-1.5 rounded-xl shrink-0 border border-slate-200">
+                                                <button 
+                                                    onClick={() => setScheduleView('graphic')}
+                                                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm md:text-base font-semibold transition-all ${scheduleView === 'graphic' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                                                >
+                                                    <ImageIcon size={18}/> แบบกราฟิก
+                                                </button>
+                                                <button 
+                                                    onClick={() => setScheduleView('table')}
+                                                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm md:text-base font-semibold transition-all ${scheduleView === 'table' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                                                >
+                                                    <TableIcon size={18}/> แบบตาราง
+                                                </button>
+                                            </div>
                                         </div>
                                         
                                         {scheduleView === 'graphic' ? (
-                                        <VisualSchedule scheduleStrArray={sport.fullSchedule} huaDongMatches={sport.matches} />
+                                            <VisualSchedule scheduleStrArray={sport.fullSchedule} huaDongMatches={sport.matches} />
                                         ) : (
-                                        <div className="animate-in fade-in duration-300">
-                                            <div className="flex justify-end mb-3">
-                                            <span className="text-sm bg-red-100 text-red-700 px-3 py-1.5 rounded-md font-semibold border border-red-200">ไฮไลท์คู่ ทต.หัวดง</span>
+                                            <div className="animate-in fade-in duration-300">
+                                                <div className="flex justify-end mb-3">
+                                                    <span className="text-sm bg-red-50 text-red-600 px-3 py-1.5 rounded-md font-semibold border border-red-100">ไฮไลท์แมตช์ ทต.หัวดง</span>
+                                                </div>
+                                                <ScheduleTable scheduleStrArray={sport.fullSchedule} />
                                             </div>
-                                            <ScheduleTable scheduleStrArray={sport.fullSchedule} />
-                                        </div>
                                         )}
-
-                                    </div>
                                     </div>
 
                                 </div>
@@ -1140,6 +1162,121 @@
                             </div>
                             ))}
                         </div>
+                        </div>
+                    )}
+
+                    {activeTab === 'compare' && (
+                        <div className="space-y-8 animate-in fade-in duration-500">
+                            <div className="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-slate-100">
+                                <h3 className="text-2xl md:text-3xl font-bold mb-8 flex items-center gap-3 text-slate-800 border-b border-slate-100 pb-5">
+                                    <div className="p-2.5 bg-indigo-100 text-indigo-700 rounded-xl"><TrendingUp size={32} /></div>
+                                    เปรียบเทียบผลงานการแข่งขัน (ปี 2568 เทียบกับ ปี 2569)
+                                </h3>
+                                
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                                    {/* ปี 2568 */}
+                                    <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-40 rounded-full blur-3xl -z-0"></div>
+                                        <div className="relative z-10">
+                                            <p className="text-slate-500 font-bold text-sm mb-1 uppercase tracking-wider">ปี 2568 (ครั้งที่ 23)</p>
+                                            <h4 className="text-2xl font-black text-slate-800 mb-6">"ฟ้าฮ่ามเกมส์"</h4>
+                                            
+                                            <div className="flex gap-4 mb-5">
+                                                <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex-1 text-center">
+                                                    <p className="text-sm text-yellow-700 font-bold mb-1">เหรียญทอง</p>
+                                                    <p className="text-3xl font-black text-yellow-500">2</p>
+                                                </div>
+                                                <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex-1 text-center">
+                                                    <p className="text-sm text-slate-600 font-bold mb-1">เหรียญเงิน</p>
+                                                    <p className="text-3xl font-black text-slate-400">2</p>
+                                                </div>
+                                                <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex-1 text-center">
+                                                    <p className="text-sm text-orange-700 font-bold mb-1">ทองแดง</p>
+                                                    <p className="text-3xl font-black text-orange-500">0</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-lg font-bold text-sm">
+                                                <Activity size={18}/> ส่งเข้าร่วม 21 รายการ (สากล 13 / พื้นบ้าน 8)
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* ปี 2569 */}
+                                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 md:p-8 rounded-2xl border border-blue-200 shadow-sm relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-40 rounded-full blur-3xl -z-0"></div>
+                                        <div className="relative z-10">
+                                            <p className="text-blue-600 font-bold text-sm mb-1 uppercase tracking-wider">ปี 2569 (ครั้งที่ 24)</p>
+                                            <h4 className="text-2xl font-black text-blue-900 mb-6">"ศรีพนมมาศเกมส์"</h4>
+                                            
+                                            <div className="flex gap-4 mb-5">
+                                                <div className="bg-white p-4 rounded-xl border border-blue-100 shadow-sm flex-1 text-center">
+                                                    <p className="text-sm text-yellow-700 font-bold mb-1">เหรียญทอง</p>
+                                                    <p className="text-3xl font-black text-yellow-500">2</p>
+                                                </div>
+                                                <div className="bg-white p-4 rounded-xl border border-blue-100 shadow-sm flex-1 text-center">
+                                                    <p className="text-sm text-slate-600 font-bold mb-1">เหรียญเงิน</p>
+                                                    <p className="text-3xl font-black text-slate-400">1</p>
+                                                </div>
+                                                <div className="bg-white p-4 rounded-xl border border-blue-100 shadow-sm flex-1 text-center">
+                                                    <p className="text-sm text-orange-700 font-bold mb-1">ทองแดง</p>
+                                                    <p className="text-3xl font-black text-orange-500">1</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md">
+                                                <Activity size={18}/> ส่งเข้าร่วม 24 รายการ (สากล 13 / พื้นบ้าน 11)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h4 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                                    <LayoutList className="text-blue-500"/> ตารางเปรียบเทียบผลกีฬาสากล
+                                </h4>
+                                <div className="overflow-x-auto bg-white rounded-xl border border-slate-200 shadow-sm">
+                                    <table className="min-w-full text-left whitespace-nowrap md:whitespace-normal">
+                                        <thead className="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                                            <tr>
+                                                <th className="px-5 py-4 text-sm md:text-base">รายการกีฬา</th>
+                                                <th className="px-5 py-4 text-sm md:text-base">ผลปี 2568</th>
+                                                <th className="px-5 py-4 text-sm md:text-base text-blue-800">ผลปี 2569 (ปัจจุบัน)</th>
+                                                <th className="px-5 py-4 text-center text-sm md:text-base">การเปลี่ยนแปลง</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-slate-100 text-sm md:text-base">
+                                            {comparisonStats.map((item, idx) => {
+                                                let trendContent = null;
+                                                if (item.trend === 'up') {
+                                                    trendContent = <span className="inline-flex items-center gap-1.5 text-green-600 bg-green-50 px-3 py-1 rounded-full font-bold border border-green-100"><ArrowUpRight size={16}/> ดีขึ้น</span>;
+                                                } else if (item.trend === 'down') {
+                                                    trendContent = <span className="inline-flex items-center gap-1.5 text-red-600 bg-red-50 px-3 py-1 rounded-full font-bold border border-red-100"><ArrowDownRight size={16}/> ลดลง</span>;
+                                                } else if (item.trend === 'wait') {
+                                                    trendContent = <span className="inline-flex items-center gap-1.5 text-blue-500 bg-blue-50 px-3 py-1 rounded-full font-bold border border-blue-100"><HelpCircle size={16}/> รอข้อมูล</span>;
+                                                } else {
+                                                    trendContent = <span className="inline-flex items-center gap-1.5 text-slate-500 bg-slate-100 px-3 py-1 rounded-full font-bold border border-slate-200"><Minus size={16}/> คงที่</span>;
+                                                }
+
+                                                return (
+                                                    <tr key={idx} className="hover:bg-slate-50 transition-colors">
+                                                        <td className="px-5 py-3.5 font-bold text-slate-800">{item.sport}</td>
+                                                        <td className={`px-5 py-3.5 font-medium ${item.y68.includes('ไม่ได้ส่ง') || item.y68.includes('รอ') ? 'text-slate-400 italic' : 'text-slate-600'}`}>{item.y68}</td>
+                                                        <td className={`px-5 py-3.5 font-bold ${item.y69.includes('ชนะเลิศ') || item.y69.includes('รอง') ? 'text-blue-700' : 'text-slate-700'}`}>{item.y69}</td>
+                                                        <td className="px-5 py-3.5 text-center">
+                                                            {trendContent}
+                                                        </td>
+                                                    </tr>
+                                                );
+                                            })}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div className="mt-4 p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm text-slate-600 space-y-1">
+                                    <p><strong className="text-slate-700">หมายเหตุ:</strong></p>
+                                    <p>- กีฬาพื้นบ้าน ปี 68 ทต.หัวดง ส่งแข่งขัน 8 รายการ ส่วนปี 69 ส่ง 11 รายการ (ผล: เข้าร่วมทั้งหมด)</p>
+                                    <p>- ข้อมูลปี 2568 สำหรับวอลเลย์บอลประชาชน ทต.หัวดง ไม่ได้ส่งทีมเข้าร่วม</p>
+                                </div>
+                            </div>
                         </div>
                     )}
 
